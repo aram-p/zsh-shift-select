@@ -67,19 +67,19 @@ function {
 	local kcap seq seq_mac widget
 
 	# Bind Shift keys in the emacs and shift-select keymaps.
-	for	kcap   seq          seq_mac    widget (             # key name
-		kLFT   '^[[1;2D'    x          backward-char        # Shift + LeftArrow
-		kRIT   '^[[1;2C'    x          forward-char         # Shift + RightArrow
-		kri    '^[[1;2A'    x          up-line              # Shift + UpArrow
-		kind   '^[[1;2B'    x          down-line            # Shift + DownArrow
-		kHOM   '^[[1;2H'    x          beginning-of-line    # Shift + Home
-		x      '^[[97;6u'   x          beginning-of-line    # Shift + Ctrl + A
-		kEND   '^[[1;2F'    x          end-of-line          # Shift + End
-		x      '^[[101;6u'  x          end-of-line          # Shift + Ctrl + E
-		x      '^[[1;6D'    '^[[1;4D'  backward-word        # Shift + Ctrl/Option + LeftArrow
-		x      '^[[1;6C'    '^[[1;4C'  forward-word         # Shift + Ctrl/Option + RightArrow
-		x      '^[[1;6H'    '^[[1;4H'  beginning-of-buffer  # Shift + Ctrl/Option + Home
-		x      '^[[1;6F'    '^[[1;4F'  end-of-buffer        # Shift + Ctrl/Option + End
+	for	kcap   seq          seq_mac        widget (               # key name
+		kLFT   '^[[1;2D'    x              backward-char          # Shift + LeftArrow
+		kRIT   '^[[1;2C'    x              forward-char           # Shift + RightArrow
+		kri    '^[[1;2A'    x              up-line                # Shift + UpArrow
+		kind   '^[[1;2B'    x              down-line              # Shift + DownArrow
+		kHOM   '^[[1;2H'    '^[[;9H'       beginning-of-line      # Shift + Home
+		x      '^[[97;6u'   x              beginning-of-line      # Shift + Ctrl + A
+		kEND   '^[[1;2F'    '^[[;9C'       end-of-line            # Shift + End
+		x      '^[[101;6u'  x              end-of-line            # Shift + Ctrl + E
+		x      '^[[1;6D'    '^[[1;10D'     backward-word          # Shift + Ctrl/Option + LeftArrow
+		x      '^[[1;6C'    '^[[1;10C'     forward-word           # Shift + Ctrl/Option + RightArrow
+		x      '^[[1;6H'    '^[[1;4H'      beginning-of-buffer    # Shift + Ctrl/Option + Home
+		x      '^[[1;6F'    '^[[1;4F'      end-of-buffer          # Shift + Ctrl/Option + End
 	); do
 		# Use alternative sequence (Option instead of Ctrl) on macOS, if defined.
 		[[ "$OSTYPE" = darwin* && "$seq_mac" != x ]] && seq=$seq_mac
